@@ -38,7 +38,9 @@ export default function SecondaryButton({ href, children, external, className = 
         hover: { borderColor: "rgb(110,239,138)", background: "rgb(25,44,48)" },
       }}
     >
-      <span className="relative block h-[30px] w-[35px] shrink-0 overflow-hidden rounded-full border border-borderColor">
+      {/* Real node has width 35px + aspectRatio:1, so it renders as a 35x35 square (its
+          stray height:30px never applies) — a perfect circle, not the 35x30 oval this was. */}
+      <span className="relative block h-[35px] w-[35px] shrink-0 overflow-hidden rounded-full border border-borderColor">
         <Image src="/images/nav-cta-avatar.jpg" alt="" fill sizes="35px" className="object-cover" />
       </span>
       <motion.span
