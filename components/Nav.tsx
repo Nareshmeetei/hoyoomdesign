@@ -23,7 +23,7 @@ export default function Nav() {
     // width 840px, radius 20px, border rgba(255,255,255,0.1), fill rgba(1,20,24,0.3),
     // 20px background blur, padding 4px 0.
     <header className="fixed top-6 left-1/2 z-50 w-[92%] max-w-[840px] -translate-x-1/2">
-      <div className="flex items-center rounded-[20px] border border-borderColor bg-[rgba(1,20,24,0.3)] px-[30px] py-1 backdrop-blur-[20px]">
+      <div className="flex items-center gap-[49px] rounded-[20px] border border-borderColor bg-[rgba(1,20,24,0.3)] px-[30px] py-1 backdrop-blur-[20px]">
         <div className="flex flex-1 items-center gap-2.5">
           <Link href="/" className="flex items-center gap-2">
             {/* Real logo wordmark: framer.agent.getNode("sn783izCx") -> KIifLscAyprtoc8B8h7u320UME.svg, hover opacity 0.75, real desktop size 137x32 */}
@@ -34,12 +34,14 @@ export default function Nav() {
         </div>
 
         <div className="flex items-center gap-2.5">
-          <nav className="hidden items-center gap-6 md:flex">
+          {/* Real "Nav / Nav Link" component (framer.agent.getNode("qMV5jssFV")): container
+              gap 0, each link's own padding is 6px 10px (its real click-target size). */}
+          <nav className="hidden items-center gap-0 md:flex">
             {links.map((l) => (
               <Link
                 key={l.text}
                 href={l.href}
-                className="text-sm font-body text-white/65 hover:text-white transition-colors"
+                className="px-[10px] py-[6px] text-sm font-body text-white/65 hover:text-white transition-colors"
               >
                 {l.text}
               </Link>
