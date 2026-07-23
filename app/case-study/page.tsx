@@ -24,7 +24,6 @@ export default function CaseStudyIndex() {
             <Reveal key={p.slug} delay={i * 0.05}>
               <Link
                 href={`/case-study/${p.slug}`}
-                data-cursor="click"
                 className="group block rounded-2xl border border-white/10 bg-cardBg overflow-hidden"
               >
                 {p.thumbnail && (

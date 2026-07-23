@@ -66,10 +66,3 @@ body {
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 }
-
-@media (hover: none) {
-  [data-cursor="click"] { cursor: pointer; }
-}
-@media (hover: hover) {
-  [data-cursor="click"] { cursor: none; }
-}

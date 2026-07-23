@@ -39,15 +39,20 @@ push to `origin/main` redeploys https://hayoomdesign.com. `vercel.json` (`{"fram
   dominant appear effect (used on ~80% of animated nodes): `threshold:0.5`, trigger
   `onInView` (once), `opacity:0→1` / `y:50→0`, `spring-physics(320, 70, 1, 0.2s)`,
   implemented with matching framer-motion spring params.
-- **Button hover state** (`components/CtaButton.tsx`) — reproduces the real
-  `$gesture:"hover"` variant read directly off the Button component: container
-  background `rgba(110,240,138,0.24)→0.71`, box-shadow `0px 1px 9px rgba(255,255,255,0)
-  →0px 1px 7px rgba(255,255,255,0.24)`, text color Primary-token→"white 80"-token, plus
-  the real blurred glow-blob layers (radial-gradient, 8px blur) around the pill.
-- **Custom cursor** (`components/CustomCursor.tsx`) — reproduces the project's "Cursor"
-  component's real "CLick" variant (82px circle, white-65 gradient fill, "Visit" label +
-  arrow, offset 20px/20px to the pointer's right), shown on `[data-cursor="click"]`
-  targets (nav links, buttons, project cards).
+- **Primary button** (`components/CtaButton.tsx`) — rewritten from the component's real
+  node tree (`framer.agent.getNode("IYmDo4Yhz")`), matching all three structural layers:
+  the 1.4px "container" ring (`rgba(110,240,138,0.24)` → hover `0.71`, box-shadow
+  `0px 1px 9px rgba(255,255,255,0)` → `0px 1px 7px rgba(255,255,255,0.24)`), the dark
+  "Inner Container" pill (`rgb(1,15,18)` → hover `rgb(3,22,26)`, `16px 100px` padding),
+  and all 7 real blurred glow-blob layers at their real positions/sizes/colors (2 ambient
+  blobs outside the ring, 3 solid blobs clipped to the ring, 2 radial-gradient blobs
+  inside the pill) — several of which grow larger on hover per the real `$gesture:"hover"`
+  replica. Text color is the real "Primary" token → "white 80" token
+  (`rgba(219,219,219,0.8)`). Transition is the component's real
+  `spring-physics(500, 60, 1, 0s)`.
+- **Custom cursor removed** — the "Cursor" component effect from the first pass was
+  removed per explicit request to keep interaction simple; the site now uses the
+  default pointer everywhere.
 - **Smooth scroll** (`components/SmoothScroll.tsx`) — Lenis-based, reproducing the
   project's "Smooth Scroll" effect component (intensity 6).
 - **Ticker / marquee** (`components/Ticker.tsx`) — uses the real speed/gap/direction

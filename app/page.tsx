@@ -298,7 +298,7 @@ export default function Home() {
         <Reveal className="max-w-5xl mx-auto text-center">
           <p className="text-primary text-xs font-mono uppercase tracking-wide mb-3">Projects</p>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-3">Some Latest Projects Our Clients Loved</h2>
-          <Link href="/case-study" data-cursor="click" className="inline-flex items-center rounded-full border border-white/20 text-white font-medium px-8 py-4 hover:bg-white/5 transition-colors mt-6">
+          <Link href="/case-study" className="inline-flex items-center rounded-full border border-white/20 text-white font-medium px-8 py-4 hover:bg-white/5 transition-colors mt-6">
             View Case Studies
           </Link>
         </Reveal>
@@ -366,7 +366,7 @@ export default function Home() {
             <CtaButton href={CHECKOUT_URL} external>
               Book a Call to Secure Your Spot
             </CtaButton>
-            <Link href="/pricing" data-cursor="click" className="inline-flex items-center justify-center rounded-full border border-white/20 text-white font-medium px-8 py-4 hover:bg-white/5 transition-colors">
+            <Link href="/pricing" className="inline-flex items-center justify-center rounded-full border border-white/20 text-white font-medium px-8 py-4 hover:bg-white/5 transition-colors">
               See Full Pricing
             </Link>
           </div>

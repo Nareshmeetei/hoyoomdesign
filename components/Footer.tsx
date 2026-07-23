@@ -27,7 +27,6 @@ export default function Footer() {
             href="https://x.com/nareshmeetei11"
             target="_blank"
             rel="noopener noreferrer"
-            data-cursor="click"
             className="text-white/50 hover:text-white text-sm transition-colors"
           >
             X
@@ -36,7 +35,6 @@ export default function Footer() {
             href="https://www.linkedin.com/in/nareshmeetei/"
             target="_blank"
             rel="noopener noreferrer"
-            data-cursor="click"
             className="text-white/50 hover:text-white text-sm transition-colors"
           >
             LinkedIn
@@ -45,7 +43,6 @@ export default function Footer() {
             href="https://dribbble.com/nareshmeetei"
             target="_blank"
             rel="noopener noreferrer"
-            data-cursor="click"
             className="text-white/50 hover:text-white text-sm transition-colors"
           >
             Dribbble
@@ -53,7 +50,7 @@ export default function Footer() {
         </div>
 
         <p className="text-white/50 text-sm mt-10">
-          <a href="mailto:hello@hayoomdesign.com" data-cursor="click" className="hover:text-white transition-colors">
+          <a href="mailto:hello@hayoomdesign.com" className="hover:text-white transition-colors">
             hello@hayoomdesign.com
           </a>
         </p>

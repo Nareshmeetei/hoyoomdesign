@@ -23,7 +23,7 @@ export default function CaseStudyDetail({ params }: Props) {
   return (
     <div className="pt-40 pb-24 px-6">
       <div className="max-w-3xl mx-auto">
-        <Link href="/case-study" data-cursor="click" className="text-primary text-sm mb-8 inline-block hover:opacity-70 transition-opacity">
+        <Link href="/case-study" className="text-primary text-sm mb-8 inline-block hover:opacity-70 transition-opacity">
           &larr; Back
         </Link>
         <Reveal>

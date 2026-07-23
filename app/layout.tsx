@@ -3,7 +3,6 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
-import CustomCursor from "@/components/CustomCursor";
 import BlurGradient from "@/components/BlurGradient";
 import { array, satoshi, cabinetGrotesk, inter, ptMono } from "@/lib/fonts";
 
@@ -25,7 +24,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <body className="font-body">
         <SmoothScroll />
-        <CustomCursor />
         <BlurGradient blur={7} />
         <Nav />
         <main>{children}</main>
