@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import CtaButton from "@/components/CtaButton";
+import SecondaryButton from "@/components/SecondaryButton";
 
 const links = [
   { href: "/#process", text: "Process" },
@@ -13,39 +13,48 @@ const links = [
   { href: "/pricing", text: "Pricing" },
 ];
 
+const CTA_URL = "https://checkout.dodopayments.com/buy/pdt_luow17L2Ht890y4x5it8m?quantity=1";
+
 export default function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-[760px]">
-      <div className="flex items-center justify-between rounded-full bg-black/80 border border-white/10 px-5 py-3 backdrop-blur-md">
-        <Link href="/" className="flex items-center gap-2">
-          {/* Real logo wordmark: framer.agent.getNode("sn783izCx") -> KIifLscAyprtoc8B8h7u320UME.svg, hover opacity 0.75 */}
-          <motion.span whileHover={{ opacity: 0.75 }} transition={{ duration: 0.3 }} className="block">
-            <Image src="/logos/logo-real.svg" alt="Hayoom Design" width={110} height={26} priority />
-          </motion.span>
-        </Link>
+    // Real "Navigation/Nav" component, "Desktop" variant (framer.agent.getNode("pAJLmyjkD")):
+    // width 840px, radius 20px, border rgba(255,255,255,0.1), fill rgba(1,20,24,0.3),
+    // 20px background blur, padding 4px 0.
+    <header className="fixed top-6 left-1/2 z-50 w-[92%] max-w-[840px] -translate-x-1/2">
+      <div className="flex items-center rounded-[20px] border border-borderColor bg-[rgba(1,20,24,0.3)] px-[30px] py-1 backdrop-blur-[20px]">
+        <div className="flex flex-1 items-center gap-2.5">
+          <Link href="/" className="flex items-center gap-2">
+            {/* Real logo wordmark: framer.agent.getNode("sn783izCx") -> KIifLscAyprtoc8B8h7u320UME.svg, hover opacity 0.75, real desktop size 137x32 */}
+            <motion.span whileHover={{ opacity: 0.75 }} transition={{ duration: 0.3 }} className="block">
+              <Image src="/logos/logo-real.svg" alt="Hayoom Design" width={137} height={32} priority />
+            </motion.span>
+          </Link>
+        </div>
 
-        <nav className="hidden md:flex items-center gap-6">
-          {links.map((l) => (
-            <Link
-              key={l.text}
-              href={l.href}
-              className="text-sm font-body text-white/65 hover:text-white transition-colors"
-            >
-              {l.text}
-            </Link>
-          ))}
-        </nav>
+        <div className="flex items-center gap-2.5">
+          <nav className="hidden items-center gap-6 md:flex">
+            {links.map((l) => (
+              <Link
+                key={l.text}
+                href={l.href}
+                className="text-sm font-body text-white/65 hover:text-white transition-colors"
+              >
+                {l.text}
+              </Link>
+            ))}
+          </nav>
 
-        <div className="hidden md:block">
-          <CtaButton href="https://checkout.dodopayments.com/buy/pdt_luow17L2Ht890y4x5it8m?quantity=1" external>
-            Book a Brainstorm
-          </CtaButton>
+          <div className="hidden md:block">
+            <SecondaryButton href={CTA_URL} external>
+              Book a Brainstorm
+            </SecondaryButton>
+          </div>
         </div>
 
         <button
-          className="md:hidden text-white"
+          className="text-white md:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
         >
@@ -54,15 +63,15 @@ export default function Nav() {
       </div>
 
       {open && (
-        <div className="md:hidden mt-2 rounded-2xl bg-black/90 border border-white/10 p-4 flex flex-col gap-4">
+        <div className="mt-2 flex flex-col gap-4 rounded-2xl border border-borderColor bg-black/90 p-4 md:hidden">
           {links.map((l) => (
             <Link key={l.text} href={l.href} className="text-white/80" onClick={() => setOpen(false)}>
               {l.text}
             </Link>
           ))}
-          <CtaButton href="https://checkout.dodopayments.com/buy/pdt_luow17L2Ht890y4x5it8m?quantity=1" external>
+          <SecondaryButton href={CTA_URL} external>
             Book a Brainstorm
-          </CtaButton>
+          </SecondaryButton>
         </div>
       )}
     </header>
