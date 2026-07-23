@@ -3,6 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { motion } from "framer-motion";
+import CtaButton from "@/components/CtaButton";
 
 const links = [
   { href: "/#process", text: "Process" },
@@ -17,26 +19,31 @@ export default function Nav() {
   return (
     <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-[760px]">
       <div className="flex items-center justify-between rounded-full bg-black/80 border border-white/10 px-5 py-3 backdrop-blur-md">
-        <Link href="/" className="flex items-center gap-2">
-          <Image src="/logos/logo-nav.svg" alt="Hayoom Design" width={28} height={28} />
+        <Link href="/" data-cursor="click" className="flex items-center gap-2">
+          {/* Real logo wordmark: framer.agent.getNode("sn783izCx") -> KIifLscAyprtoc8B8h7u320UME.svg, hover opacity 0.75 */}
+          <motion.span whileHover={{ opacity: 0.75 }} transition={{ duration: 0.3 }} className="block">
+            <Image src="/logos/logo-real.svg" alt="Hayoom Design" width={110} height={26} priority />
+          </motion.span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
           {links.map((l) => (
-            <Link key={l.text} href={l.href} className="text-sm text-white/65 hover:text-white transition-colors">
+            <Link
+              key={l.text}
+              href={l.href}
+              data-cursor="click"
+              className="text-sm font-body text-white/65 hover:text-white transition-colors"
+            >
               {l.text}
             </Link>
           ))}
         </nav>
 
-        <a
-          href="https://checkout.dodopayments.com/buy/pdt_luow17L2Ht890y4x5it8m?quantity=1"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden md:inline-flex items-center rounded-full bg-primary text-secondary text-sm font-medium px-4 py-2 hover:opacity-90 transition-opacity"
-        >
-          Book a Brainstorm
-        </a>
+        <div className="hidden md:block">
+          <CtaButton href="https://checkout.dodopayments.com/buy/pdt_luow17L2Ht890y4x5it8m?quantity=1" external>
+            Book a Brainstorm
+          </CtaButton>
+        </div>
 
         <button
           className="md:hidden text-white"
@@ -54,14 +61,9 @@ export default function Nav() {
               {l.text}
             </Link>
           ))}
-          <a
-            href="https://checkout.dodopayments.com/buy/pdt_luow17L2Ht890y4x5it8m?quantity=1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-full bg-primary text-secondary text-sm font-medium px-4 py-2"
-          >
+          <CtaButton href="https://checkout.dodopayments.com/buy/pdt_luow17L2Ht890y4x5it8m?quantity=1" external>
             Book a Brainstorm
-          </a>
+          </CtaButton>
         </div>
       )}
     </header>

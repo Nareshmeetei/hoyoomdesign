@@ -16,9 +16,10 @@ const config: Config = {
         borderColor: "rgba(255, 255, 255, 0.1)",
       },
       fontFamily: {
-        heading: ["var(--font-heading)"],
-        body: ["var(--font-body)"],
-        mono: ["var(--font-mono)"],
+        heading: ["var(--font-array)", "sans-serif"],
+        cabinet: ["var(--font-cabinet-grotesk)", "sans-serif"],
+        body: ["var(--font-satoshi)", "var(--font-inter)", "sans-serif"],
+        mono: ["var(--font-pt-mono)", "monospace"],
       },
     },
   },

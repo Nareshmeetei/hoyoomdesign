@@ -1,37 +1,32 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, PT_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import SmoothScroll from "@/components/SmoothScroll";
+import CustomCursor from "@/components/CustomCursor";
+import BlurGradient from "@/components/BlurGradient";
+import { array, satoshi, cabinetGrotesk, inter, ptMono } from "@/lib/fonts";
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--space-grotesk",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "700", "900"],
-  variable: "--inter",
-});
-
-const ptMono = PT_Mono({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--pt-mono",
-});
-
+// Real SEO metadata pulled from the project's RootNode (framer.agent.getNode("rootNode")).
 export const metadata: Metadata = {
   title: "High-Converting AI B2B SaaS Website Design in 14 Days | Hayoom Design",
   description:
-    "Elevate your brand with subscription design services. High-converting, buyer-focused websites for B2B SaaS, delivered fast.",
+    "Transform your AI B2B SaaS website into a high-converting sales machine in 14 days. Conversion focused, modern and B2B buyer-focused design. 25%+ conversion increase guaranteed.",
+  openGraph: {
+    images: ["https://framerusercontent.com/images/jLq6NcEN3AMXVVsd4wO1yRunvs.png"],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} ${ptMono.variable}`}>
+    <html
+      lang="en"
+      className={`${array.variable} ${satoshi.variable} ${cabinetGrotesk.variable} ${inter.variable} ${ptMono.variable}`}
+    >
       <body className="font-body">
+        <SmoothScroll />
+        <CustomCursor />
+        <BlurGradient blur={7} />
         <Nav />
         <main>{children}</main>
         <Footer />

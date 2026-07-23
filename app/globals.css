@@ -2,14 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --font-heading: var(--space-grotesk);
-  --font-body: var(--inter);
-  --font-mono: var(--pt-mono);
-}
-
 html {
-  scroll-behavior: smooth;
+  /* Lenis (SmoothScroll.tsx) drives smoothing; native smooth-scroll would double up. */
+  scroll-behavior: auto;
 }
 
 body {
@@ -51,4 +46,30 @@ body {
 
 .prose-content strong {
   color: #fff;
+}
+
+@keyframes ticker-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes ticker-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+@keyframes mist-drift {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(8deg) scale(1.08); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+.animate-mist-drift {
+  animation-name: mist-drift;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@media (hover: none) {
+  [data-cursor="click"] { cursor: pointer; }
+}
+@media (hover: hover) {
+  [data-cursor="click"] { cursor: none; }
 }
