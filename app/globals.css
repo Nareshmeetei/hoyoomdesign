@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-heading: var(--space-grotesk);
+  --font-body: var(--inter);
+  --font-mono: var(--pt-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: rgb(1, 20, 24);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.prose-content h2,
+.prose-content h3 {
+  font-weight: 700;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: #fff;
+}
+
+.prose-content p {
+  margin-bottom: 1em;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.prose-content ul,
+.prose-content ol {
+  margin-bottom: 1em;
+  padding-left: 1.5em;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.prose-content li {
+  margin-bottom: 0.5em;
+}
+
+.prose-content img {
+  border-radius: 12px;
+  margin: 1.5em 0;
+  width: 100%;
+  height: auto;
+}
+
+.prose-content strong {
+  color: #fff;
+}
